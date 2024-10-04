@@ -1,0 +1,63 @@
+---
+title: "October-4-2024"
+format: html
+editor: visual
+---
+
+## Set up
+```{r}
+#Clear the environment
+rm(list = ls())
+
+#Load in packages
+library(tidyverse)
+library(here)
+```
+
+## Read in the drug resistance dataset
+```{r}
+drugs <- read.csv(here("Data","drug_resistance.csv"))
+glimpse(drugs)
+```
+
+## Convert to Treatment to a factor varaible
+```{r}
+drugs$Treatment <- as.factor(drugs$Treatment)
+levels(drugs$Treatment)
+```
+
+## Fix the Treatment variable 
+```{r}
+#Find the rows that have any version of "control" (identifying the rows that need repair)
+fix <- which(drugs$Treatment %in% c("cantrol","control","Control"))
+
+#Repair the rows
+drugs$Treatment[fix] <- "control"
+
+
+#Find the rows that have any version of "drug x 2"
+fix2 <- which(drugs$Treatment %in% c("drug x 2","drug2","Drugx2"))
+
+#Repair the rows
+drugs$Treatment[fix2] <- "drug x 2"
+
+
+#Find the rows that have any version of "drug x 3"
+fix3 <- which(drugs$Treatment %in% c("drug x 3", "Drug x 3", "drug3"))
+
+#Repair the rows
+drugs$Treatment[fix3] <- "drug x 3"
+              
+
+#This just tells R to relist the levels of my factor now that they have changed 
+drugs$Treatment <- factor(drugs$Treatment)
+
+#Check
+levels(drugs$Treatment)
+
+```
+
+## Fix the tech.name variable
+```{r}
+
+```
