@@ -34,3 +34,17 @@ tomatoes$Treatment[fix2] <- "Fertilizer"
 tomatoes$Treatment <- factor(tomatoes$Treatment)
 levels(tomatoes$Treatment)
 ```
+
+Now look at summary function
+```{r}
+test <- c(2, 4, 6, 8, 10, 12, 14, 16, 18, 20)
+summary(test)
+
+grades <- c(90, 94, 96, 90, 84, 86)
+summary(grades)
+```
+
+We also have the quantile function (different way)
+```{r}
+quantile(grades, probs = c(0, 0.25, 0.5, 0.75, 1))
+```
