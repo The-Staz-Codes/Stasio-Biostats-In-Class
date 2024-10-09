@@ -48,3 +48,15 @@ We also have the quantile function (different way)
 ```{r}
 quantile(grades, probs = c(0, 0.25, 0.5, 0.75, 1))
 ```
+
+Using the dplyr package
+```{r}
+#Accessing the number of flowers column 
+select(tomatoes, Num_flowers)
+#Access the 3rd through 8th rows of data 
+slice(tomatoes, 3:8)
+#Access only rows from Control condition
+filter(tomatoes, Treatment == "Control")
+#Access data for plants that had at least 27 flowers
+filter(tomatoes, Num_flowers > 27)
+```
