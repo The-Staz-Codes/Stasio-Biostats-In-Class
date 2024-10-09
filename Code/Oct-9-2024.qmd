@@ -20,13 +20,19 @@ tomato <- read.csv(here("Data","tomato_data.csv"))
 
 Return the 3rd, 7th, and 9th rows of the data set
 ```{r}
+#Here is one way
 slice(tomato, c(3,7,9))
+#Here is another 
+tomato %>% slice(c(3,7,9))
+#And another
+tomato |> slice(c(3,7,9)) |> View()
+
 ```
 
 Find all plants from fertilizer treatment with avg_tomato_weight_g greater 
 than or equal to 145 g
 ```{r}
-filter(tomato, Treatment == "Fertilizer", Avg_tomato_weight_g >= 145)
+filter(tomato, Treatment == "Fertilizer" & Avg_tomato_weight_g >= 145)
 ```
 
 
