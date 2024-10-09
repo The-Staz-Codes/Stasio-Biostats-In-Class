@@ -35,4 +35,19 @@ than or equal to 145 g
 filter(tomato, Treatment == "Fertilizer" & Avg_tomato_weight_g >= 145)
 ```
 
+Save your changes (to a new file in an output folder)
 
+Make the output folder
+```{r}
+dir.create(here("Outputs"))
+```
+
+Now save the file
+```{r}
+write.csv(tomato, here("Outputs", "tomatoes_fixed.csv"), row.names = FALSE)
+#row.names = F prevents R from adding a column of row numbers to the output file 
+```
+
+```{r}
+toms2 <- read.csv(here("Outputs", "tomatoes_fixed.csv"))
+```
